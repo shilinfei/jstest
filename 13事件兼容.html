@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var btn = document.getElementById("btn");
+            var btn2 =document.getElementById('btn2');
+            myAddEventListener(btn,'click',onbtn);
+            myAddEventListener(btn2,'click',onbtn2);
+            function onbtn(){
+                console.log("我被点击了");
+            }
+            function onbtn2(){
+                myRemoveEventListener(btn,'click',onbtn);
+                console.log('btn的点击事件被移除了');
+            }
+
+            function myAddEventListener(Event,type,fn){
+                if(Event.addEventListener){
+                   Event.addEventListener(type,fn,false);
+                }else if(Event.attachEvent){
+                    Event.attachEvent('on'+type,fn);
+                }else{
+                    Event['on'+type] = fn;
+                }
+            }
+            function myRemoveEventListener(Event,type,fn){
+                if(Event.removeEventListener){
+                    Event.removeEventListener(type,fn,false);
+                }else if(Event.detachEvent){
+                    Event.detachEvent('on'+type,fn)
+                }else{
+                    Event['on'+type] =  null;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">btn1</button>
+    <button id="btn2">btn2</button>
+</body>
+</html>

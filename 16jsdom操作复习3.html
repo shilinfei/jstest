@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom操作复习</title>
+    <script>
+        window.onload = function(){
+            // var btn = document.getElementById('sub');
+            // btn.onclick = getfrom;
+
+            // function getfrom(){
+            //   var username = document.getElementsByName("username");
+            //   console.log(username[0].value)
+            //   var password =document.getElementsByName("password");
+            //   console.log(password[0].value);
+            //   var sex = document.getElementsByName('sex');
+            //   for(let i = 0;i<sex.length;i++){
+            //       if(sex[i].checked){
+            //           console.log(sex[i].value)
+            //       }
+            //   }
+            //   var like = document.getElementsByName('like');
+            //   for(let i=0;i<like.length;i++){
+            //       if(like[i].checked){
+            //          console.log( like[i].value);
+                     
+            //       }
+            //   }
+            // }
+              var  cleckall =document.getElementById("checkall");
+              var likes = document.getElementsByName("like");
+              for(let i=0;i<likes.length;i++){
+                likes[i].onclick = function(){
+                    if(!this.checked){
+                        cleckall.checked = likes[i].checked; 
+                    }
+                }
+              }
+              cleckall.onclick = setcheckbox;
+              function setcheckbox(){
+                      for(let i=0;i<likes.length;i++){
+                        likes[i].checked =  cleckall.checked;
+                      }
+              }
+        }
+    </script>
+</head>
+<body>
+    <h1>表单元素操作</h1>
+    <!-- <form action="">
+        用户名:<input type="text" name="username"/><br/>
+        密码:<input type="password" name="password"/><br/>
+        性别: <input type="radio" name = "sex"  value="men"/>男 <input type="radio" name = "sex"  value="gilo"/>女<br/>
+        爱好:<input type="checkbox" name="like" value= "1">1
+        <input type="checkbox" name="like" value= "2">2
+        <input type="checkbox" name="like" value= "3">3
+        <input type="checkbox" name="like" value= "4">4<br/>
+        <input type="button" id="sub" value="提交"/>
+    </form> -->
+    <form>
+        <input type="checkbox" name="like" value="1">1<br/>
+        <input type="checkbox" name="like" value="2">2<br/>
+        <input type="checkbox" name="like" value="3">3<br/>
+        <input type="checkbox" name="like" value="4">4<br/>
+        <input type="checkbox" name="like" value="5">5<br/>
+        <input type="checkbox" name="like" value="6">6<br/>
+        <input type="checkbox" name="like" value="7">7<br/>
+        <input type="checkbox" name="like" value="8">8<br/>
+        <input type="checkbox" id="checkall">全选<br/>
+    </form>
+</body>
+</html>

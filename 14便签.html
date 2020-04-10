@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>memo</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        button{
+            border:0;
+        }
+        ul{
+            list-style:none;
+        }
+        .memo{
+            height:100%;
+            width:170px;
+            background-color:#7aeeff;
+            padding-bottom:10px;
+        }
+        .memo ul{
+            padding:10px 0;
+        }
+        .memo li{
+            margin:0 auto;
+            padding:6px 0;
+            width:150px;
+            border-bottom:1px solid #333;;
+        }
+        .memo .header{
+            height:30px;
+            line-height:30px;
+            background-color:#00b1cb;
+            text-align: center;
+            color:#fff;;
+        }
+        .add{
+            display: block;
+            margin:0 auto;
+            height:30px;
+            width:120px;
+            background-color:#00b1cb;
+            color:#fff;
+            border-radius:5px;
+            line-height:30px;
+            text-align: center;
+        }
+        .memo .time{
+            height:12px;
+            line-height:12px;
+            font-size:8px;
+            color:#666;
+            margin-bottom:6px;
+        }
+        .memo .con{
+            line-height:20px;
+            font-size:16px;
+        }
+        .fulfil{
+            color:#eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="memo">
+        <div class="header">
+            备忘录
+        </div>
+        <ul>
+            <li class="fulfil">
+                <p class="time">12-12 12:00</p>
+                <p class="con">可以的吧!</p>
+            </li>
+            <li>
+                <p class="time">12-12 12:00</p>
+                <p class="con">可以的吧!</p>
+            </li>
+            <li>
+                <p class="time">12-12 12:00</p>
+                <p class="con">可以的吧!</p>
+            </li>
+        </ul>
+        <button class="add">新加</button>
+    </div>
+</body>
+</html>

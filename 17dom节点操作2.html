@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            // 创建节点
+            var subbox = document.createElement("span");
+            subbox.innerText = "6";
+            // 插入子节点
+            var box =document.getElementById('box');
+            box.appendChild(subbox);
+            var subbox2 =document.createElement('span');
+            subbox2.innerText = "这是新的节点";
+            // box.insertBefore(subbox2,参考的子节点);
+            box.insertBefore(subbox2,box.lastChild);
+            // 删除节点
+            box.removeChild(subbox2);
+            // 复制节点
+            var newsub = box.lastElementChild;
+            var new2 = newsub.cloneNode(true);
+            console.log(new2);
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+    </div>
+</body>
+</html>

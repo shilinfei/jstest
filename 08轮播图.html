@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+       #carousel{
+           position: relative;
+           height:300px;
+           width:600px;
+           border:10px solid #cc0;
+           overflow: hidden;
+       }
+       .imgbox{
+           position:absolute;
+           height:300px;
+           width:600px;
+       }
+       .item{
+           float: left;
+       }
+       #arr-left,
+       #arr-right{
+           top:43%;
+           position: absolute;
+            display: block;
+            height:50px;
+            width:30px;
+            background-color:rgba(255, 255, 255, .4);
+            line-height:50px;
+            text-align: center;
+            font-size:30px;
+            color:#fff;
+       }
+       #arr-left{
+           left:0;
+       }
+       #arr-right{
+           right:0;
+       }
+       .dot{
+           position:absolute;
+           bottom:20px;
+           left:40%;
+           height:10px;
+           width:100px;
+       }
+       .dot li{
+           float: left;
+           height:10px;
+           width:10px;
+           margin:0 5px;
+           background-color:#000;
+       }
+    </style>
+    <script>
+        window.onload = function(){
+            // 获取所有用到的dom对象
+            var car= document.getElementById("carousel");
+            var imgbox = document.getElementsByClassName("imgbox")[0];
+            var items = document.getElementsByClassName("item");
+            var arrL = document.getElementById("arr-left");
+            var arrR =document.getElementById("arr-right");
+            var dots =document.querySelectorAll(".dot li");
+            console.log(dots);
+
+            // 初始化
+            imgbox.style.width = car.clientWidth * (items.length +2)+'px';
+            // 插入元素
+            // 头插尾,尾插头
+            firstItem = items[0].cloneNode(true);
+            lastItem = items[items.length-1].cloneNode(true);
+
+            imgbox.appendChild(firstItem);
+            // 尾插头
+            imgbox.insertBefore(lastItem,imgbox.childNodes[0]);
+
+            imgbox.style.left = - car.clientWidth +"px";
+
+            // 动起来
+            var timeid = setInterval(run,5000)
+            // 
+            var index = 1;
+            function run(){
+                 index++;
+                 imgbox.style.transition = 'left 0.5s ease-in-out' 
+                 imgbox.style.left = (-index * car.clientWidth) +"px" ;
+
+                 if(index == items.length -1 ){
+                     index = 1;
+                     setTimeout(function(){
+                         imgbox.style.transition = 'none';
+                         imgbox.style.left = (-index * car.clientWidth) +"px"
+                     },500)
+
+                 }          
+            }
+            arrL.onclick = function(){
+                clearInterval(timeid); 
+                index--;
+                imgbox.style.transition = 'left 0.5s ease-in-out' 
+                imgbox.style.left = (-index * car.clientWidth) +"px" ;
+
+                if(index == 0 ){
+                     index = items.length -2;
+                     setTimeout(function(){
+                         imgbox.style.transition = 'none';
+                         imgbox.style.left = (-index * car.clientWidth) +"px"
+                     },500)
+
+                }
+                timeid = setInterval(run,5000)
+            }
+            arrR.onclick =function(){
+                clearInterval(timeid); 
+                run();
+                timeid = setInterval(run,5000)
+                        
+            }
+            for(var i=0;i<dots.length;i++){
+                dots[i].onclick = function(){
+                    clearInterval(timeid);
+                    index = this.innerText;
+                    imgbox.style.transition = 'left 0.5s ease-in-out' 
+                    imgbox.style.left = (-index * car.clientWidth) +"px" ;
+                    timeid = setInterval(run,5000)                   
+                }
+                
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div id="carousel">
+        <ul class="imgbox">
+            <li class="item"><img src="./image/image01.jpg" title="1"/></li>
+            <li class="item"><img src="./image/image02.jpg" title="2"/></li>
+            <li class="item"><img src="./image/image03.jpg" title="3"/></li>
+            <li class="item"><img src="./image/image04.jpg" title="4"/></li>
+            <li class="item"><img src="./image/image05.jpg" title="5"/></li>
+        </ul>
+        <a id="arr-left">&lt;</a>
+        <a id="arr-right">&gt;</a>
+        <ul class="dot">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+</body>
+</html>

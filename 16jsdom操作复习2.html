@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom操作复习</title>
+    <script>
+        window.onload = function(){
+            // 属性操作
+            var box =document.getElementById('box');
+            box.className = 'reg';
+            var a1 = document.getElementById('a1');
+            a1.href = 'http://baidu.com';
+            // a1.innerText = '<s>baidu</s>';
+            a1.innerHTML = '<s>baidu</s>'
+        }
+    </script>
+    <style>
+        .reg{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <a href="" id='a1'>这是百度的连接</a>
+    </div>
+</body>
+</html>

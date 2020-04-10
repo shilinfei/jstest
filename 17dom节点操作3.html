@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var btnright = document.getElementById("btnright");
+            var btnleft =document.getElementById("btnleft");
+            btnright.onclick = function(){
+                var select1 =document.getElementById("select1");
+                var select2 =document.getElementById("select2");
+                var subops = select1.options;
+                var size = subops.length;
+                for(let i=0;i<size;i++){
+                    console.log(subops[i].selected);
+                    if(subops[i].selected){
+                        select2.appendChild(subops[i]);
+                    }
+                }
+                
+                  
+               
+                
+            }
+        }
+    </script>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <select name="" id="select1" size="10" style="width:200px;" multiple>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+
+    <button id="btnright">右移=></button>
+    <button id="btnleft">左移<=</button>
+
+    <select name="" id="select2" size="10" style="width:200px;" multiple>
+       
+    </select>
+</body>
+</html>

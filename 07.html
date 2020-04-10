@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件01</title>
+    <script>
+        window.onload = function(){
+            var btn = document.getElementById("btn");
+            var box = document.getElementsByTagName("div")[0]
+            btn.onclick = function(){
+                box.style.color = "#aaa";
+                box.style.backgroundColor = "#f00";
+                console.dir(box)
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- 点击按钮div变红色 -->
+    <div name="user">
+        aaa
+    </div>
+    <button id="btn">点我</button>
+</body>
+</html>

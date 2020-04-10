@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+           var btn2 = document.getElementById("btn2");
+           btn2.onclick = keke;
+           var btn3 =document.getElementById("btn3");
+           btn3.addEventListener('click',keke);
+           
+        }
+        function keke(){
+                console.log('我被点击了!')
+            }
+        
+    </script>
+</head>
+<body>
+    <button onclick="keke()">点我</button>
+    <button id="btn2">点我2</button>
+    <button id="btn3">点我2</button>
+</body>
+</html>

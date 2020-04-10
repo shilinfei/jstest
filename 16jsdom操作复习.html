@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom操作复习</title>
+    <script>
+        window.onload = function(){
+            // 一 获取元素
+            // 1 根据ID获取元素
+            var box = document.getElementById("box1")
+            console.log(box)
+            // 2 根据标签名称获取元素
+            var div = document.getElementsByTagName("div");
+            console.log(div)
+            // 3 根据类名获取元素
+            var box2 = document.getElementsByClassName("box");
+            console.log(box2)
+            // 4 根据选择器获取元素
+            var a =document.querySelector('#box1');
+            var b = document.querySelectorAll('.box')
+            console.log(a);
+            console.log(b);
+            var c =document.querySelector('.box div');
+            console.log(c);
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="box1" class="box">
+        1
+    </div>
+    <div class="box">
+        1
+    </div>
+    <div class="box">
+        1
+    </div>
+    <div class="box">
+        <div>2</div>
+    </div>
+</body>
+</html>

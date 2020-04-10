@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模态框</title>
+    <style>
+        .modal{
+            display: none;
+            /* display: block; */
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin:-200px 0  0 -250px;
+            height:400px;
+            width:500px;
+            border:1px solid #444;
+        }
+        .modal .header{
+            height:40px;
+            width:100%;
+            background-color:#4e8;
+            line-height:40px;
+        }
+        .modal .header .title{
+            float: left;
+            padding-left:20px;
+            color:#fff;
+        }
+        .modal .header .close{
+            float:right;
+            padding-right:20px;
+            color:#f33;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var btn = document.getElementById("mybtn");
+            btn.onclick(modal('myModal'));
+            
+        }
+        function modal(str){
+                console.log(111);
+                var mod = document.getElementById(str);
+                mod.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <button id="mybtn">打开</button>
+    <div id="myModal" class="modal">
+        <div class="header">
+            <span class="title">标题</span>
+            <span class="close">X</span>
+        </div>
+        <div class="main">
+
+        </div>
+    </div>
+</body>
+</html>
