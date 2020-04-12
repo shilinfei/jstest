@@ -7,7 +7,35 @@
 </head>
 <body>
     <script>
+        // function Person(name,age){
+        //     this.type = "human";
+        //     this.name = name;
+        //     this.age = age;
+        // }
         
+        // function Strder(name,age){
+        //     Person.call(this,name,age);
+        // }
+        // var s1 = new Strder('lishi',12);
+        // console.log(s1);
+        function Person(name,age){
+            this.type = 'human';
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.sayName = function(){
+            return this.name;
+        }
+        console.log(new Person('lisi',12));
+
+        function Stu(name,age,sex){
+            Person.call(this,name,age);
+            this.sex = sex;
+        }
+        for(var key in Person.prototype){
+            Stu.prototype[key] =Person.prototype[key];
+        }
+        console.log((new Stu('zs',12,'man')).sayName());
     </script>
 </body>
 </html>
